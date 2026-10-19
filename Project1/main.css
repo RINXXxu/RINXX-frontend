@@ -1,0 +1,502 @@
+:root {
+    --primary:#124eaf;
+    --bg-body:#ede9e5;
+    --bg-card:#ffffff;
+    --bg-nav:rgba(246, 243, 241, 0.9);
+    --bg-filter:#efedea;
+    --bg-input:#ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --border-color: #c3c9d0;
+    --shadow: 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-hover:0 12px 30px rgba(0, 0, 0, 0.1);
+    --transition:0.3s ease;
+    --radius:10px;
+    --highlight:#ffcc00;
+    --text-highlight:#0f172a;
+}
+
+body.dark {
+    --primary:#3b82f6;
+    --bg-body: #0c1526;
+    --bg-card: #1e293b;
+    --bg-nav: rgba(19, 27, 44, 0.9);
+    --bg-filter: #2a3545; /*原定色号#334155*/
+    --bg-input:#1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
+    --border-color: #334155;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.5);
+    --highlight:#E5C07B;
+    --text-highlight:#0c1526;
+}
+
+/* ================================================================
+   重置
+   ================================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg-body);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: background var(--transition), color var(--transition);
+    min-height: 100vh;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ================================================================
+   导航 (请自行设计)
+   ================================================================ */
+.navbar {
+    background:var(--bg-nav);
+    backdrop-filter: blur(12px);
+    padding-top:10px;
+    padding-bottom:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.03);;
+}
+
+.nav-container {
+    display: flex;
+    gap: 16px;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary); 
+}
+.logo:hover {
+    color:var(--primary);
+}
+
+.nav-menu {
+    display:none;
+    list-style: none;
+    margin-left:20px;
+    margin-top:10px;
+}
+.nav-menu a {
+    text-decoration: none;
+    color: inherit;
+}
+.nav-menu a:hover{
+    color:var(--primary);
+}
+
+.nav-actions {
+    display:flex;
+    margin-left: auto; 
+    gap: 8px;
+    align-items: center;
+}
+
+.theme-toggle,
+.menu-toggle {
+    font-size:1.05rem;
+    background:var(--bg-card);
+    border:1px solid var(--border-color);
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    color:var(--text-secondary);
+    cursor: pointer;
+}
+.theme-toggle:hover,
+.menu-toggle:hover {
+    transform:scale(1.05);
+}
+
+.menu-toggle {
+    /* 样式由你定义 */
+    /* 参考：display: none; */
+}
+
+/* ================================================================
+   主布局 (请自行设计)
+   ================================================================ */
+.main-grid {
+    /* 样式由你定义 */
+    /* 参考：display: grid; grid-template-columns: 2fr 1fr; gap: 32px; */
+    /* 参考：padding: 32px 0 48px; */
+}
+
+/* ================================================================
+   文章区域 (请自行设计)
+   ================================================================ */
+.section-header {
+    /* 样式由你定义 */
+    /* 参考：display: flex; justify-content: space-between; align-items: center; */
+    /* 参考：flex-wrap: wrap; gap: 12px; margin-bottom: 16px; */
+}
+.section-header h2 {
+    /* 样式由你定义 */
+    /* 参考：font-size: 1.5rem; */
+}
+
+.search-box {
+    /* 样式由你定义 */
+    /* 参考：flex: 1; min-width: 180px; max-width: 300px; */
+}
+.search-box input {
+    width: 100%;
+    padding:8px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background: var(--bg-input);
+    margin-top:10px;
+    margin-bottom:10px;
+    color:var(--text-primary);
+}
+.search-box input:focus {
+    border: 1px solid var(--primary);
+    outline:none;
+}
+.search-box input::placeholder{
+    color:var(--text-secondary);
+}
+
+.category-filters {
+    /* 样式由你定义 */
+    /* 参考：display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; */
+}
+
+.filter-btn {
+    /* 样式由你定义 */
+    /* 参考：padding: 6px 20px; border: 1px solid var(--border-color); */
+    /* 参考：border-radius: var(--radius-full); background: var(--bg-filter); */
+}
+.filter-btn:hover {
+    /* 样式由你定义 */
+    /* 参考：transform: translateY(-2px); box-shadow: var(--shadow); */
+}
+.filter-btn.active {
+    /* 样式由你定义 */
+    /* 参考：background: var(--primary); color: #fff; border-color: var(--primary); */
+}
+
+.articles-section{
+    grid-area:articles;
+    margin-top:20px;
+}
+
+.articles-grid {
+    display: grid;
+    gap:20px;
+}
+
+.article-card {
+    background:var(--bg-card);
+    border-radius:var(--radius);
+    padding:24px;
+    border:1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+.article-card:hover {
+    border-color:var(--primary);
+    box-shadow: var(--shadow-hover);
+}
+
+.article-meta {
+    gap:16px;
+    color:var(--text-muted);
+    font-size:0.85rem;
+}
+
+.article-category {
+    background: var(--bg-filter);
+    border-radius: var(--radius);
+}
+
+.article-card h3 {
+    font-size:1.2rem;
+    color:var(--text-primary);
+}
+.article-card p {
+    color:var(--text-primary);
+    /* 样式由你定义 */
+    /* 参考：color: var(--text-secondary); margin-bottom: 14px; */
+}
+
+.article-footer {
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    /* 样式由你定义 */
+    /* 参考：display: flex; justify-content: space-between; align-items: center; */
+    /* 参考：border-top: 1px solid var(--border-color); padding-top: 14px; */
+}
+
+mark.highlight{
+    background: var(--highlight);
+    border-radius: 5px;
+    color: var(--text-highlight);
+    padding: 0;
+}
+
+.fav-btn {
+    /* 样式由你定义 */
+    /* 参考：background: none; border: none; cursor: pointer; font-size: 1.2rem; */
+}
+.fav-btn:hover {
+    /* 样式由你定义 */
+    /* 参考：transform: scale(1.2); */
+}
+.fav-btn.favorited {
+    /* 样式由你定义 */
+    /* 参考：color: #f59e0b; */
+}
+
+.empty-state {
+    /* 样式由你定义 */
+    /* 参考：text-align: center; padding: 48px 20px; color: var(--text-muted); */
+    /* 参考：background: var(--bg-card); border: 2px dashed var(--border-color); */
+}
+
+/* ================================================================
+   侧边栏 (请自行设计)
+   ================================================================ */
+.sidebar {
+    grid-area:sidebar;
+    margin-top: 20px;
+    max-width: 230px;
+    background:var(--bg-nav);
+    padding:0 20px;
+}
+
+.sidebar-card {
+    max-width:190px;
+    background: var(--bg-card);
+    border:1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    padding:20px;
+    margin:20px 0;
+}
+.sidebar-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+.sidebar-card h4 {
+    /* 样式由你定义 */
+    /* 参考：font-size: 1.1rem; margin-bottom: 12px; border-bottom: 1px solid var(--border-color); */
+    /* 参考：padding-bottom: 10px; */
+}
+
+.profile-card {
+    text-align:center;
+}
+
+.profile-card h3 {
+    font-size:1.2rem;
+}
+
+.profile-bio {
+    color: var(--text-secondary);
+}
+
+.profile-social a{
+    text-decoration: none;
+    color: inherit;
+    /* 样式由你定义 */
+    /* 参考：display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; */
+}
+.profile-social a:hover{
+    color:var(--primary);
+}
+
+.tag-cloud {
+    /* 样式由你定义 */
+    /* 参考：display: flex; flex-wrap: wrap; gap: 8px; */
+}
+.tag {
+    /* 样式由你定义 */
+    /* 参考：background: var(--bg-filter); padding: 4px 14px; border-radius: var(--radius-full); */
+    /* 参考：font-size: 0.85rem; color: var(--text-secondary); border: 1px solid var(--border-color); */
+}
+.tag:hover {
+    /* 样式由你定义 */
+    /* 参考：background: var(--primary); color: #fff; border-color: var(--primary); */
+}
+
+.recent-list {
+    /* 样式由你定义 */
+    /* 参考：list-style: none; */
+}
+.recent-list li {
+    /* 样式由你定义 */
+    /* 参考：padding: 8px 0; border-bottom: 1px solid var(--border-color); */
+    /* 参考：display: flex; justify-content: space-between; align-items: center; */
+}
+.recent-list li:last-child {
+    /* 样式由你定义 */
+    /* 参考：border-bottom: none; */
+}
+.recent-list a {
+    /* 样式由你定义 */
+    /* 参考：color: var(--text-primary); */
+}
+.recent-list a:hover {
+    /* 样式由你定义 */
+    /* 参考：color: var(--primary); */
+}
+.recent-date {
+    /* 样式由你定义 */
+    /* 参考：font-size: 0.8rem; color: var(--text-muted); */
+}
+
+.stats-grid {
+    /* 样式由你定义 */
+    /* 参考：display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; */
+    /* 参考：text-align: center; */
+}
+.stat-item {
+    /* 样式由你定义 */
+    /* 参考：background: var(--bg-filter); border-radius: var(--radius-sm); padding: 10px 6px; */
+    /* 参考：border: 1px solid var(--border-color); */
+}
+.stat-number {
+    /* 样式由你定义 */
+    /* 参考：display: block; font-size: 1.6rem; font-weight: 700; color: var(--primary); */
+}
+.stat-label {
+    /* 样式由你定义 */
+    /* 参考：font-size: 0.8rem; color: var(--text-muted); */
+}
+
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  width: 44px;
+  height: 44px;
+  display:grid;
+  grid-area: backtotop;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  box-shadow: var(--shadow);
+  font-size: 1.2rem;
+  align-items: center;
+  justify-items: center;
+  cursor: pointer;
+
+  /* 默认隐藏，渐入渐出靠 transition */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  border:1px solid var(--primary);
+  box-shadow: var(--shadow-hover);
+  transform:scale(1.05);
+}
+
+/* ================================================================
+   页脚 (请自行设计)
+   ================================================================ */
+.footer {
+    padding-top:var(--padding-top);
+    text-align: center;
+    /* 样式由你定义 */
+    /* 参考：background: var(--bg-card); border-top: 1px solid var(--border-color); */
+    /* 参考：padding: 24px 0; text-align: center; color: var(--text-secondary); */
+}
+.footer-content a {
+    text-decoration: none;
+    color: inherit;
+}
+.footer-content a:hover{
+    color:var(--primary);
+}
+.footer-tech {
+    /* 样式由你定义 */
+    /* 参考：font-size: 0.85rem; color: var(--text-muted); */
+}
+
+/* ================================================================
+   响应式 (请自行设计断点)
+   ================================================================ */
+@media (min-width: 1024px) {
+    .main-grid{
+        display:grid;
+        grid-gap:20px;
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas:
+        "articles sidebar"
+        "articles backtotop";
+    }
+    .articles-grid{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-grid{
+        display:grid;
+        grid-gap:20px;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+        "articles sidebar"
+        "articles backtotop";
+    }
+
+    .articles-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-grid{
+        display:grid;
+        grid-gap:20px;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+        "articles sidebar"
+        "articles backtotop";
+    }
+
+    .articles-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 540px) {
+    .main-grid{
+        display:grid;
+        grid-gap:20px;
+        grid-template-columns:1fr;
+        grid-template-areas:
+        "articles"
+    }
+
+    .sidebar {
+        display:none;
+    }
+
+    .articles-grid{
+        grid-template-columns: 1fr;
+    }
+}

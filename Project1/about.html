@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rinxxtagram</title>
+    <link rel="stylesheet" href="about.css" />
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <span class="logo">Rinxxtagram</span>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="about.html" class="active">关于</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="切换主题">🌙</button>
+                <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        <h2 id="about-title">关于作者</h2>
+        <div class="aboutContainer main-Grid">
+            <div class="aboutPicture">
+                <img src="photo.png" style="width:200px;height:200px;border-radius:10px">
+            </div>   
+            <div class="aboutArticle">
+                <h2>RINXX</h2>
+                <h3 class="about-text">兴趣驱动的代码苦手 | 少女乐队重度依赖 | 45°卷摆二象性</h3>
+                <br>
+                <h3 class="about-text">出生于06年冬季的少女。</h3>
+                <h3 style="color:var(--text-secondary);">「即使迷茫，也要前进」</h3>
+                <h3 class="about-text">持续学习前端知识中...</h3>
+                <br>
+                <div class="profile-social">
+                <a href="https://github.com/RINXXxu">GitHub主页</a>
+                <span> | </span>
+                <a href="https://www.zhihu.com/people/dramione-45">知乎主页</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">↑</button>
+
+    <!-- ========================================================== -->
+    <!-- 页脚                                                     -->
+    <!-- ========================================================== -->
+    
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>© 2026 Rinxxtagram | Framework by <a href="https://github.com/hechawai">DaYan</a></p>
+            <p class="footer-tech">HTML · CSS · JavaScript</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+    <script src="post.js"></script>
+</body>
+</html>

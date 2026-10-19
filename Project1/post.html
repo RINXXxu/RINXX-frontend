@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rinxxtagram</title>
+    <link rel="stylesheet" href="post.css" />
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <span class="logo">Rinxxtagram</span>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="about.html" class="active">关于</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="切换主题">🌙</button>
+                <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mainGrid">
+        <article class="post-container">
+            <h1 id="post-title"></h1>
+            <div class="post-meta">
+                <span id="post-category" ></span>
+                <span id="post-date"></span>
+            </div>
+            <div id="post-content"></div>
+        </article>
+
+
+            <!-- ===== 侧边栏 ===== -->
+        <aside class="sidebar">
+
+            <!-- ========================================================== -->
+            <!-- 你可以删掉整个侧边栏重写，或删掉部分卡片              -->
+            <!-- ========================================================== -->
+
+            <!-- 个人简介 -->
+            <div class="sidebar-card profile-card">
+                <img src="photo.png" style="width:150px;height:150px;border-radius:10px">
+                <h3>RINXX</h3>
+                <p class="profile-bio">（写了一句介绍让你对我有了深入了解）</p>
+                <div class="profile-social">
+                    <a href="https://github.com/RINXXxu">GitHub</a>
+                    <span> | </span>
+                    <a href="https://www.zhihu.com/people/dramione-45">知乎</a>
+                </div>
+            </div>
+
+            <!-- (选做) 统计 — 完成该功能需保留 id="totalArticles" "totalCategories" -->
+            <div class="sidebar-card">
+                <h4>统计</h4>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalArticles">12</span>
+                        <span class="stat-label">文章</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalCategories">3</span>
+                        <span class="stat-label">分类</span>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+
+    </main>
+
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">↑</button>
+
+    <!-- ========================================================== -->
+    <!-- 页脚                                                     -->
+    <!-- ========================================================== -->
+    
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>© 2026 Rinxxtagram | Framework by <a href="https://github.com/hechawai">DaYan</a></p>
+            <p class="footer-tech">HTML · CSS · JavaScript</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+    <script src="post.js"></script>
+</body>
+</html>
